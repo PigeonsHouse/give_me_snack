@@ -27,7 +27,7 @@ class User(Base):
     created_at = Column(DateTime, default=func.now())
 
 class Duty(Base):
-    __tablename__ = 'duty'
+    __tablename__ = 'duties'
     user_id = Column(String, ForeignKey('users.user_id'), primary_key=True)
     order = Column(Integer)
     created_at = Column(DateTime, default=func.now())

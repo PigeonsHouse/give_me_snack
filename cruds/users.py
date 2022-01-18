@@ -3,7 +3,7 @@ import os
 from fastapi import HTTPException
 from sqlalchemy.orm.session import Session
 from schemas.users import User as UserSchema
-from db.schema import User
+from db.schema import Duty, User
 
 salt = os.environ.get('PASSWORD_HASH_SALT', '$2a$10$ThXfVCPWwXYx69U8vuxSUu').encode()
 
@@ -35,6 +35,9 @@ def get_user_by_id(db: Session, user_id: str) -> UserSchema:
     if user_orm is None:
         raise HTTPException(status_code=400, detail='user not exist')
     user = UserSchema.from_orm(user_orm)
+    duty_orm = db.query(Duty).get(user_id)
+    if duty_orm is not None:
+        user.order = duty_orm.order
     return user
     
 def get_user_by_name(db: Session, name: str) -> User:
