@@ -1,8 +1,22 @@
 # お菓子管理アプリ
-## Done ☆ POST /users/duties
+- [x] ☆POST /users/duties
+- [x] ☆ PUT /users/duties
+- [x] ☆ DELETE /users/duties/:order
+- [x] GET /users/duties
+- [ ] ☆ GET /snacks/purchased
+- [ ] ☆ POST /snacks/purchased
+- [ ] GET /snacks/today
+- [ ] GET /snacks/ranking
+- [ ] POST /snacks/evaluate/:snack_id
+- [ ] GET /snacks/suggest
+- [ ] POST /snacks/suggest
+- [ ] POST /snacks/favorite/:snack_id
+- [ ] DELETE /snacks/favorite/:snack_id
+
+## ☆ POST /users/duties
 当番ユーザーの追加(キュー)
 
-## Done ☆ PUT /users/duties
+## ☆ PUT /users/duties
 当番ユーザーの移動
 ```
 {
@@ -14,6 +28,9 @@
 ## ☆ DELETE /users/duties/:order
 当番ユーザーの削除
 
+## GET /users/duties
+当番のユーザーリスト
+
 ## ☆ GET /snacks/purchased
 買ったお菓子リスト
 
@@ -24,9 +41,6 @@
     "name": str
 }
 ```
-
-## GET /users/duties
-当番のユーザーリスト
 
 ## GET /snacks/today
 今日のお菓子のリスト
